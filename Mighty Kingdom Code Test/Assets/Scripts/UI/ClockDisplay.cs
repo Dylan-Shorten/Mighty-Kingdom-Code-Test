@@ -54,11 +54,6 @@ public class ClockDisplay : MonoBehaviour
             return;
         }
 
-        if (clockDisplayFormat == null || textDisplay == null)
-        {
-            return;
-        }
-
         textDisplay.text = clockDisplayFormat.GetDateTimeFormatted(clockController.ClockTime);
     }
 
@@ -66,11 +61,6 @@ public class ClockDisplay : MonoBehaviour
     void OnValidate()
     {
         if (Application.isPlaying)
-        {
-            return;
-        }
-
-        if (clockDisplayFormat == null || textDisplay == null)
         {
             return;
         }

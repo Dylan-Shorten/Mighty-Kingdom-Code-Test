@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c9ccddf66bcc54da5e6f8138aba073, type: 3}
   m_Name: Countdown Mode
   m_EditorClassIdentifier: 
-  startTime:
+  initialClockTime:
     dateTimeSelection: -1
     millisecond: 0
     second: 0
@@ -21,4 +21,3 @@ MonoBehaviour:
     day: 1
     month: 1
     year: 1
-  finishSound: {fileID: 8300000, guid: 369d9eadebc2cfb43b98cee9a416bd52, type: 3}

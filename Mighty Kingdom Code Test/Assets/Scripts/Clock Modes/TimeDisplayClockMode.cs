@@ -5,13 +5,20 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Clock/Clock Modes/Time Display Clock Mode")]
 public class TimeDisplayClockMode : ClockMode
 {
-    public override DateTime UpdateClockTime(DateTime clockTime)
+    DateTime previousTime = default;
+
+
+    void OnEnable()
     {
-        return DateTime.Now;
+        previousTime = DateTime.Now;
+        IsTicking = true;
+
+        OnUpdate += OnUpdateClock;
     }
 
-    public override DateTime ResetClockTime()
+    void OnUpdateClock()
     {
-        return DateTime.Now;
+        ClockTime = ClockTime.AddSafe(DeltaTime);
+        previousTime = DateTime.Now;
     }
 }

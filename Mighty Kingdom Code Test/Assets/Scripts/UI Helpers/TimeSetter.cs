@@ -16,20 +16,20 @@ public class TimeSetter : MonoBehaviour
     TMP_InputField timeInputField = default;
 
     [SerializeField]
-    TMP_Text placeholderText = default;
+    TMP_Text formatText = default;
 
 
     private void Start()
     {
         timeInputField.onEndEdit.AddListener(SetTime);
-        clockDisplay.OnFormatChanged.AddListener(_ => RefreshPlaceholderText());
+        clockDisplay.OnFormatChanged.AddListener(_ => RefreshFormatText());
 
-        RefreshPlaceholderText();
+        RefreshFormatText();
     }
 
-    private void RefreshPlaceholderText()
+    private void RefreshFormatText()
     {
-        placeholderText.text = GetFormatNoNewLines(clockDisplay.ClockDisplayFormat);
+        formatText.text = GetFormatNoNewLines(clockDisplay.ClockDisplayFormat);
     }
 
     public void SetTime(string inputTime)

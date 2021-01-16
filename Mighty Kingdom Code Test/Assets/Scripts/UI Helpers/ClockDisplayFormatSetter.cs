@@ -21,7 +21,7 @@ public class ClockDisplayFormatSetter : MonoBehaviour
 
     public void SetClockDisplayFormat(int clockFormatIndex)
     {
-        if (clockDisplay == null || clockFormatIndex < 0 || clockFormatIndex >= clockDisplayFormats.Count)
+        if (clockFormatIndex < 0 || clockFormatIndex >= clockDisplayFormats.Count)
         {
             return;
         }

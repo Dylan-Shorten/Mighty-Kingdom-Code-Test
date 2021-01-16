@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f847e89d6e6b9f4e904e5947ecdd2b5, type: 3}
   m_Name: Stopwatch Mode
   m_EditorClassIdentifier: 
-  startTime:
+  initialClockTime:
     dateTimeSelection: -1
     millisecond: 0
     second: 0

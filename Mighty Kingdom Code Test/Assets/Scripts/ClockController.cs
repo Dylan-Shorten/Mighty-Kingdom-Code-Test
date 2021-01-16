@@ -11,18 +11,17 @@ public class ClockController : MonoBehaviour
 {
     public DateTime ClockTime
     {
-        get => clockTime;
+        get => clockMode.ClockTime;
         set
         {
-            if (clockTime != value)
+            if (clockMode.ClockTime != value)
             {
-                clockTime = value;
-                OnTick?.Invoke(clockTime);
+                clockMode.ClockTime = value;
+                OnTick?.Invoke(clockMode.ClockTime);
             }
         }
     }
         
-
     public ClockMode ClockMode
     {
         get => clockMode;
@@ -30,9 +29,11 @@ public class ClockController : MonoBehaviour
         {
             clockMode = value;
             onModeChanged?.Invoke();
-            ResetClock();
+            RefreshClock();
         }
     }
+
+    public bool IsTicking { get => clockMode.IsTicking; set => clockMode.IsTicking = value; }
 
     public ClockEvent OnStart => onStart;
 
@@ -65,15 +66,9 @@ public class ClockController : MonoBehaviour
     [SerializeField]
     UnityEvent onModeChanged = default;
 
-    DateTime clockTime = default;
-
-    bool isTicking = default;
-
 
     void Start()
     {
-        ResetClock();
-
         if (initiallyStarted)
         {
             StartClock();
@@ -82,22 +77,18 @@ public class ClockController : MonoBehaviour
         {
             StopClock();
         }
+
+        ResetClock();
     }
 
     void Update()
     {
-        if (!isTicking)
-        {
-            return;
-        }
+        clockMode.UpdateClock();
 
-        if (clockMode == null)
+        if (IsTicking)
         {
-            return;
+            onTick?.Invoke(ClockTime);
         }
-
-        ClockTime = clockMode.UpdateClockTime(ClockTime);
-        onTick?.Invoke(ClockTime);
 
         if (ClockTime <= DateTime.MinValue || ClockTime >= DateTime.MaxValue)
         {
@@ -107,20 +98,31 @@ public class ClockController : MonoBehaviour
 
     public void StartClock()
     {
-        isTicking = true;
+        IsTicking = true;
         onStart?.Invoke(ClockTime);
     }
 
     public void StopClock()
     {
-        isTicking = false;
+        IsTicking = false;
         onStop?.Invoke(ClockTime);
     }
 
     public void ResetClock()
     {
-        ClockTime = clockMode.ResetClockTime();
-        StopClock();
+        clockMode.ResetClock();
         onReset?.Invoke(ClockTime);
+    }
+
+    public void RefreshClock()
+    {
+        if (clockMode.IsTicking)
+        {
+            StartClock();
+        }
+        else
+        {
+            StopClock();
+        }
     }
 }

@@ -53,7 +53,7 @@ public class EditableDateTimeDrawer : PropertyDrawer
         }
         if (selection.HasFlag(EDateTimeSelection.Year))
         { 
-            EditorGUILayout.IntSlider(monthProperty, 1, 9999);
+            EditorGUILayout.IntSlider(yearProperty, 1, 9999);
         }
 
         EditorGUI.indentLevel--;

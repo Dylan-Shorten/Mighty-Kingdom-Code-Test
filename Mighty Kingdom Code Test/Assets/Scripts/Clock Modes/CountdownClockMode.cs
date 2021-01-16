@@ -5,19 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Clock/Clock Modes/Countdown Clock Mode")]
 public class CountdownClockMode : ClockMode
 {
-    public EditableDateTime StartTime => startTime;
-
-    [SerializeField]
-    EditableDateTime startTime = default;
-
-
-    public override DateTime UpdateClockTime(DateTime clockTime)
+    void OnEnable()
     {
-        return clockTime.Add(-Time.deltaTime, EDateTimeAddType.Seconds);
+        OnUpdate += OnUpdateClock;
     }
 
-    public override DateTime ResetClockTime()
+    void OnUpdateClock()
     {
-        return startTime.DateTime;
+        ClockTime = ClockTime.AddSafe(-DeltaTime);
     }
 }

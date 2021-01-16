@@ -12,3 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d6e80ed20907a47883fb30da8d1f6f, type: 3}
   m_Name: Time Display Mode
   m_EditorClassIdentifier: 
+  IsTicking: 1
+  initialClockTime:
+    dateTimeSelection: -1
+    millisecond: 0
+    second: 0
+    minute: 0
+    hour: 0
+    day: 1
+    month: 1
+    year: 2021

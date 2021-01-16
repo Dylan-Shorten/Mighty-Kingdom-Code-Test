@@ -13,11 +13,6 @@ public class ClockDisplayFormat : ScriptableObject
 
     public string GetDateTimeFormatted(DateTime dateTime)
     {
-        if (dateTime == null)
-        {
-            return string.Empty;
-        }
-
         return dateTime.ToString(format);
     }
 }
