@@ -6,6 +6,16 @@ public class ClockController : MonoBehaviour
 {
     public DateTime ClockTime => clockTime;
 
+    public ClockMode ClockMode
+    {
+        get => clockMode;
+        set
+        {
+            clockMode = value;
+            ResetClock();
+        }
+    }
+
     DateTime clockTime;
 
     bool isTicking = default;
@@ -14,18 +24,25 @@ public class ClockController : MonoBehaviour
     ClockMode clockMode = default;
 
 
-    private void Start()
+    void Start()
     {
+        ResetClock();
         StartClock();
-        clockTime = clockMode.ResetClockTime();
     }
 
     void Update()
     {
-        if (isTicking)
+        if (!isTicking)
         {
-            clockTime = clockMode.UpdateClockTime(clockTime);
+            return;
         }
+
+        if (clockMode == null)
+        {
+            return;
+        }
+
+        clockTime = clockMode.UpdateClockTime(clockTime);
     }
 
     public void StartClock()

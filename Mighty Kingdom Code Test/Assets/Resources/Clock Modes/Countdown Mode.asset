@@ -15,9 +15,9 @@ MonoBehaviour:
   startTime:
     dateTimeSelection: -1
     millisecond: 0
-    second: 0
+    second: 5
     minute: 0
     hour: 0
     day: 1
     month: 1
-    year: 2000
+    year: 1

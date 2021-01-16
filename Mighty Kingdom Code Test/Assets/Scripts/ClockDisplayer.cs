@@ -14,19 +14,36 @@ public class ClockDisplayer : MonoBehaviour
     [SerializeField]
     ClockFormat clockFormat = default;
 
+
     void Update()
     {
-        if (Application.isPlaying)
-            textDisplay.text = clockFormat.GetDateTimeFormatted(clockController.ClockTime);
+        if (!Application.isPlaying)
+        {
+            return;
+        }
+
+        if (clockFormat == null || textDisplay == null)
+        {
+            return;
+        }
+
+        textDisplay.text = clockFormat.GetDateTimeFormatted(clockController.ClockTime);
     }
 
 #if UNITY_EDITOR
     void OnValidate()
     {
-        if (!Application.isPlaying)
+        if (Application.isPlaying)
         {
-            textDisplay.text = clockFormat.Format;
+            return;
         }
+
+        if (clockFormat == null || textDisplay == null)
+        {
+            return;
+        }
+
+        textDisplay.text = clockFormat.Format;
     }
 #endif
 }

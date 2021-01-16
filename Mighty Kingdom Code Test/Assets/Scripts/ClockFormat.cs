@@ -11,8 +11,14 @@ public class ClockFormat : ScriptableObject
     [TextArea]
     string format = default;
 
+
     public string GetDateTimeFormatted(DateTime dateTime)
     {
+        if (dateTime == null)
+        {
+            return string.Empty;
+        }
+
         return dateTime.ToString(format);
     }
 }
