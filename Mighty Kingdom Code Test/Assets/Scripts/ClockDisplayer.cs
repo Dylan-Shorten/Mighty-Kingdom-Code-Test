@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 
 public class ClockDisplayer : MonoBehaviour
@@ -12,6 +11,6 @@ public class ClockDisplayer : MonoBehaviour
 
     private void Update()
     {
-        textDisplay.text = clockController.ClockTime.ToString();
+        textDisplay.text = clockController.ClockTime.DateTime.ToString();
     }
 }

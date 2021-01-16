@@ -9,6 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c012810535e3b14f98d2387e6059356, type: 3}
+  m_Script: {fileID: 11500000, guid: f8c9ccddf66bcc54da5e6f8138aba073, type: 3}
   m_Name: Countdown Mode
   m_EditorClassIdentifier: 
+  startTime:
+    dateTimeFormat: -1
+    millisecond: 0
+    second: 0
+    minute: 0
+    hour: 0
+    day: 1
+    month: 1
+    year: 1
