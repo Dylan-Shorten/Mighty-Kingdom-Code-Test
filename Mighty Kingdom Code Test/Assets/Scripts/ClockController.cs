@@ -1,13 +1,44 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+
 
 public class ClockController : MonoBehaviour
 {
-    public float ClockTime => clockTime;
+    public DateTime ClockTime => clockTime;
 
-    float clockTime = 0.0f;
+    DateTime clockTime = default;
+
+    bool isTicking = default;
+
+    [SerializeField]
+    ClockMode clockMode = default;
+
+
+    private void Start()
+    {
+        StartClock();
+    }
 
     void Update()
     {
-        clockTime += Time.deltaTime;
+        if (isTicking)
+        {
+            clockTime = clockMode.UpdateClockTime(clockTime);
+        }
+    }
+
+    public void StartClock()
+    {
+        isTicking = true;
+    }
+
+    public void StopClock()
+    {
+        isTicking = false;
+    }
+
+    public void ResetClock()
+    {
+        clockTime = clockMode.ResetClockTime();
     }
 }

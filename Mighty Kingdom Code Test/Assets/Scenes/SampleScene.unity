@@ -330,6 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd9c4b49e2a247a4f9e649577104e484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clockMode: {fileID: 11400000, guid: 04c9c50c63fa1e648a9c94a8322c0c99, type: 2}
 --- !u!4 &484817873
 Transform:
   m_ObjectHideFlags: 0
