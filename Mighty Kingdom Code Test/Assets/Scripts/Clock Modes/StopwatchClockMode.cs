@@ -13,13 +13,7 @@ public class StopwatchClockMode : ClockMode
 
     public override DateTime UpdateClockTime(DateTime clockTime)
     {
-        // Ensure that the time does not go above MaxValue.
-        if (clockTime >= DateTime.MaxValue.AddSeconds(-1))
-        {
-            return DateTime.MaxValue;
-        }
-
-        return clockTime.AddSeconds(Time.deltaTime);
+        return clockTime.Add(Time.deltaTime, EDateTimeAddType.Seconds);
     }
 
     public override DateTime ResetClockTime()

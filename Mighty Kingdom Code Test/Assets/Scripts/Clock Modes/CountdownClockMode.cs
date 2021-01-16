@@ -13,13 +13,7 @@ public class CountdownClockMode : ClockMode
 
     public override DateTime UpdateClockTime(DateTime clockTime)
     {
-        // Ensure that the time does not go below MinValue.
-        if (clockTime <= DateTime.MinValue.AddSeconds(1))
-        {
-            return DateTime.MinValue;
-        }
-
-        return clockTime.AddSeconds(-Time.deltaTime);
+        return clockTime.Add(-Time.deltaTime, EDateTimeAddType.Seconds);
     }
 
     public override DateTime ResetClockTime()

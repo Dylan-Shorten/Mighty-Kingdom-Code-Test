@@ -7,8 +7,7 @@ public class ClockDisplayFormat : ScriptableObject
 {
     public string Format => format;
 
-    [SerializeField]
-    [TextArea]
+    [SerializeField, TextArea]
     string format = default;
 
 

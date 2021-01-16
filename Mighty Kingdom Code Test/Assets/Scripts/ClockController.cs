@@ -1,10 +1,15 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
+
+
+[Serializable]
+public class ClockEvent : UnityEvent { }
 
 
 public class ClockController : MonoBehaviour
 {
-    public DateTime ClockTime => clockTime;
+    public DateTime ClockTime;
 
     public ClockMode ClockMode
     {
@@ -16,18 +21,36 @@ public class ClockController : MonoBehaviour
         }
     }
 
-    DateTime clockTime;
-
     bool isTicking = default;
 
     [SerializeField]
     ClockMode clockMode = default;
 
+    [SerializeField]
+    bool initiallyStarted = default;
+
+    [SerializeField]
+    UnityEvent onStart = default;
+
+    [SerializeField]
+    UnityEvent onStop = default;
+
+    [SerializeField]
+    UnityEvent onReset = default;
+
 
     void Start()
     {
         ResetClock();
-        StartClock();
+
+        if (initiallyStarted)
+        {
+            StartClock();
+        }
+        else
+        {
+            StopClock();
+        }
     }
 
     void Update()
@@ -42,21 +65,29 @@ public class ClockController : MonoBehaviour
             return;
         }
 
-        clockTime = clockMode.UpdateClockTime(clockTime);
+        ClockTime = clockMode.UpdateClockTime(ClockTime);
+
+        if (ClockTime <= DateTime.MinValue || ClockTime >= DateTime.MaxValue)
+        {
+            StopClock();
+        }
     }
 
     public void StartClock()
     {
         isTicking = true;
+        onStart?.Invoke();
     }
 
     public void StopClock()
     {
         isTicking = false;
+        onStop?.Invoke();
     }
 
     public void ResetClock()
     {
-        clockTime = clockMode.ResetClockTime();
+        ClockTime = clockMode.ResetClockTime();
+        onReset?.Invoke();
     }
 }

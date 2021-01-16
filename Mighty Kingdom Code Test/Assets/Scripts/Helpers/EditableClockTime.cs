@@ -18,11 +18,9 @@ public enum EDateTimeSelection
 [Serializable]
 public struct EditableDateTime : ISerializationCallbackReceiver
 {
-    public DateTime DateTime { get => dateTime; set => dateTime = value; }
+    public DateTime DateTime;
 
     public EDateTimeSelection DateTimeSelection => dateTimeSelection;
-
-    DateTime dateTime;
 
     [SerializeField]
     EDateTimeSelection dateTimeSelection;
