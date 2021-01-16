@@ -88,6 +88,7 @@ public class ClockController : MonoBehaviour
     public void ResetClock()
     {
         ClockTime = clockMode.ResetClockTime();
+        StopClock();
         onReset?.Invoke();
     }
 }
