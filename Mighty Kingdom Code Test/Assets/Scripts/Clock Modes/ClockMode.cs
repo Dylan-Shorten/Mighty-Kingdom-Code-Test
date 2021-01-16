@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 
 public abstract class ClockMode : ScriptableObject
 {
-    public abstract void UpdateClockTime(ref ClockDateTime clockTime);
+    public abstract DateTime UpdateClockTime(DateTime clockTime);
 
-    public abstract void ResetClockTime(ref ClockDateTime clockTime);
+    public abstract DateTime ResetClockTime();
 }

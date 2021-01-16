@@ -5,13 +5,13 @@ using UnityEngine;
 [CreateAssetMenu]
 public class TimeDisplayClockMode : ClockMode
 {
-    public override void UpdateClockTime(ref ClockDateTime clockTime)
+    public override DateTime UpdateClockTime(DateTime clockTime)
     {
-        clockTime.DateTime = DateTime.Now;
+        return DateTime.Now;
     }
 
-    public override void ResetClockTime(ref ClockDateTime clockTime)
+    public override DateTime ResetClockTime()
     {
-        clockTime.DateTime = DateTime.Now;
+        return DateTime.Now;
     }
 }

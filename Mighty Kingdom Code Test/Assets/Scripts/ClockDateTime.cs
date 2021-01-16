@@ -16,37 +16,37 @@ public enum EDateTimeFormat
 
 
 [Serializable]
-public class ClockDateTime : ISerializationCallbackReceiver
+public struct EditableDateTime : ISerializationCallbackReceiver
 {
     public DateTime DateTime { get => dateTime; set => dateTime = value; }
 
     public EDateTimeFormat DateTimeFormat => dateTimeFormat;
 
-    DateTime dateTime = default;
+    DateTime dateTime;
 
     [SerializeField]
-    EDateTimeFormat dateTimeFormat = 0;
+    EDateTimeFormat dateTimeFormat;
 
     [SerializeField]
-    int millisecond = default;
+    int millisecond;
 
     [SerializeField]
-    int second = default;
+    int second;
 
     [SerializeField]
-    int minute = default;
+    int minute;
 
     [SerializeField]
-    int hour = default;
+    int hour;
 
     [SerializeField]
-    int day = default;
+    int day;
     
     [SerializeField]
-    int month = default;
+    int month;
 
     [SerializeField]
-    int year = default;
+    int year;
 
 
     public void OnBeforeSerialize()

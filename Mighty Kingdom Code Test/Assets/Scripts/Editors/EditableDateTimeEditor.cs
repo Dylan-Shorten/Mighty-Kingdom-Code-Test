@@ -3,12 +3,15 @@ using UnityEditor;
 using UnityEngine;
 
 
-[CustomPropertyDrawer(typeof(ClockDateTime))]
-public class ClockDateTimeDrawer : PropertyDrawer
+[CustomPropertyDrawer(typeof(EditableDateTime))]
+public class EditableDateTimeDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
         EditorGUI.BeginProperty(position, label, property);
+
+        EditorGUILayout.LabelField(label);
+        EditorGUI.indentLevel++;
 
         SerializedProperty formatProperty = property.FindPropertyRelative("dateTimeFormat");
         EditorGUILayout.PropertyField(formatProperty);
@@ -50,6 +53,8 @@ public class ClockDateTimeDrawer : PropertyDrawer
         {
             EditorGUILayout.PropertyField(yearProperty);
         }
+
+        EditorGUI.indentLevel--;
 
         EditorGUI.EndProperty();
 

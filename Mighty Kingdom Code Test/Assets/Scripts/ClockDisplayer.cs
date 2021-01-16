@@ -11,6 +11,6 @@ public class ClockDisplayer : MonoBehaviour
 
     private void Update()
     {
-        textDisplay.text = clockController.ClockTime.DateTime.ToString();
+        textDisplay.text = clockController.ClockTime.ToString();
     }
 }

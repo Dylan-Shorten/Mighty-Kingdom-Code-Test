@@ -5,17 +5,19 @@ using UnityEngine;
 [CreateAssetMenu]
 public class StopwatchClockMode : ClockMode
 {
+    public EditableDateTime StartTime => startTime;
+
     [SerializeField]
-    ClockDateTime startTime;
+    EditableDateTime startTime = default;
 
 
-    public override void UpdateClockTime(ref ClockDateTime clockTime)
+    public override DateTime UpdateClockTime(DateTime clockTime)
     {
-        clockTime.DateTime = clockTime.DateTime.AddSeconds(Time.deltaTime);
+        return clockTime.AddSeconds(Time.deltaTime);
     }
 
-    public override void ResetClockTime(ref ClockDateTime clockTime)
+    public override DateTime ResetClockTime()
     {
-        clockTime = startTime;
+        return startTime.DateTime;
     }
 }

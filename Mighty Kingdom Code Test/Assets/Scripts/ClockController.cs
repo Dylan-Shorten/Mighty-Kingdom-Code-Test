@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ClockController : MonoBehaviour
 {
-    public ClockDateTime ClockTime => clockTime;
+    public DateTime ClockTime => clockTime;
 
-    ClockDateTime clockTime = new ClockDateTime();
+    DateTime clockTime;
 
     bool isTicking = default;
 
@@ -17,14 +17,14 @@ public class ClockController : MonoBehaviour
     private void Start()
     {
         StartClock();
-        clockMode.ResetClockTime(ref clockTime);
+        clockTime = clockMode.ResetClockTime();
     }
 
     void Update()
     {
         if (isTicking)
         {
-            clockMode.UpdateClockTime(ref clockTime);
+            clockTime = clockMode.UpdateClockTime(clockTime);
         }
     }
 
@@ -40,6 +40,6 @@ public class ClockController : MonoBehaviour
 
     public void ResetClock()
     {
-        clockMode.ResetClockTime(ref clockTime);
+        clockTime = clockMode.ResetClockTime();
     }
 }

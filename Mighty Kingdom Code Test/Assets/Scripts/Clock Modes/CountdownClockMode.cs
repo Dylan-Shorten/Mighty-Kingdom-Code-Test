@@ -1,22 +1,23 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 
 [CreateAssetMenu]
 public class CountdownClockMode : ClockMode
 {
-    public ClockDateTime StartTime => startTime;
+    public EditableDateTime StartTime => startTime;
 
     [SerializeField]
-    ClockDateTime startTime = default;
+    EditableDateTime startTime = default;
 
 
-    public override void UpdateClockTime(ref ClockDateTime clockTime)
+    public override DateTime UpdateClockTime(DateTime clockTime)
     {
-        clockTime.DateTime = clockTime.DateTime.AddSeconds(-Time.deltaTime);
+        return clockTime.AddSeconds(-Time.deltaTime);
     }
 
-    public override void ResetClockTime(ref ClockDateTime clockTime)
+    public override DateTime ResetClockTime()
     {
-        clockTime = startTime;
+        return startTime.DateTime;
     }
 }
