@@ -7,8 +7,8 @@ public class StopwatchClockMode : ClockMode
 {
     void OnEnable()
     {
-        OnUpdate.AddListener(_ => OnUpdateClock());
-        OnReset.AddListener(_ => OnResetClock());
+        OnUpdate.DynamicCalls += _ => OnUpdateClock();
+        OnReset.DynamicCalls += _ => OnResetClock();
     }
 
     void OnUpdateClock()

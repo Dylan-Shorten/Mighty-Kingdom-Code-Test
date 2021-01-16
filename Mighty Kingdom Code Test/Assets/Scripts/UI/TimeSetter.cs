@@ -19,7 +19,8 @@ public class TimeSetter : MonoBehaviour
     private void Start()
     {
         timeInputField.onEndEdit.AddListener(SetTime);
-        clockController.OnFormatChanged.AddListener(_ => RefreshFormatText());
+        clockController.OnFormatChanged.DynamicCalls += _ => RefreshFormatText();
+        clockController.OnModeChanged.DynamicCalls += _ => RefreshFormatText();
 
         RefreshFormatText();
     }
@@ -31,7 +32,7 @@ public class TimeSetter : MonoBehaviour
 
     public void SetTime(string inputTime)
     {
-        if (!DateTime.TryParseExact(inputTime, GetFormatNoNewLines(clockController.ClockFormat), new CultureInfo("en-US"), DateTimeStyles.AllowWhiteSpaces, out DateTime parsedDateTime))
+        if (!DateTime.TryParseExact(inputTime, GetFormatNoNewLines(clockController.ClockFormat), new CultureInfo("en-US"), DateTimeStyles.AllowWhiteSpaces | DateTimeStyles.NoCurrentDateDefault, out DateTime parsedDateTime))
         {
             return;
         }

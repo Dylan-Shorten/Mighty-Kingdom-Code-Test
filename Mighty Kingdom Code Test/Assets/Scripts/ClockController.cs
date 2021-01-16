@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Events;
+using UltEvents;
 
 
 [Serializable]
-public class ClockEvent : UnityEvent<DateTime> { }
+public class ClockEvent : UltEvent<DateTime> { }
 
 [Serializable]
-public class ClockFormatEvent : UnityEvent<ClockDisplayFormat> { }
+public class ClockFormatEvent : UltEvent<ClockDisplayFormat> { }
 
 [Serializable]
-public class ClockModeEvent : UnityEvent<ClockMode> { }
+public class ClockModeEvent : UltEvent<ClockMode> { }
 
 
 public class ClockController : MonoBehaviour
@@ -23,7 +23,7 @@ public class ClockController : MonoBehaviour
             if (clockMode.ClockTime != value)
             {
                 clockMode.ClockTime = value;
-                OnTick?.Invoke(clockMode.ClockTime);
+                onTick?.Invoke(clockMode.ClockTime);
             }
         }
     }
@@ -33,9 +33,12 @@ public class ClockController : MonoBehaviour
         get => clockMode;
         set
         {
-            clockMode = value;
-            onModeChanged?.Invoke(clockMode);
-            RefreshClock();
+            if (clockMode != value)
+            {
+                clockMode = value;
+                onModeChanged?.Invoke(clockMode);
+                RefreshClock();
+            }
         }
     }
 
@@ -44,8 +47,11 @@ public class ClockController : MonoBehaviour
         get => clockMode.ClockFormat;
         set
         {
-            clockMode.ClockFormat = value;
-            onFormatChanged?.Invoke(clockMode.ClockFormat);
+            if (clockMode.ClockFormat != value)
+            {
+                clockMode.ClockFormat = value;
+                onFormatChanged?.Invoke(clockMode.ClockFormat);
+            }
         }
     }
 
@@ -58,6 +64,8 @@ public class ClockController : MonoBehaviour
     public ClockEvent OnStop => onStop;
 
     public ClockEvent OnReset => onReset;
+
+    public UltEvent OnFinished => onFinished;
 
     public ClockModeEvent OnModeChanged => onModeChanged;
 
@@ -79,6 +87,9 @@ public class ClockController : MonoBehaviour
     ClockEvent onReset = default;
 
     [SerializeField]
+    UltEvent onFinished = default;
+
+    [SerializeField]
     ClockModeEvent onModeChanged = default;
 
     [SerializeField]
@@ -93,16 +104,18 @@ public class ClockController : MonoBehaviour
 
     void Update()
     {
-        clockMode.UpdateClock();
+        DateTime initialClockTime = ClockTime;
 
-        if (IsTicking)
+        if (clockMode.UpdateClock())
         {
             onTick?.Invoke(ClockTime);
         }
 
-        if (ClockTime <= DateTime.MinValue || ClockTime >= DateTime.MaxValue)
+        // Call OnFinished if the clock has reached the min or max DateTime value.
+        if ((ClockTime <= DateTime.MinValue || ClockTime >= DateTime.MaxValue) && initialClockTime != ClockTime)
         {
             StopClock();
+            onFinished?.Invoke();
         }
     }
 

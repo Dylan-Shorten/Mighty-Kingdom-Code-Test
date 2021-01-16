@@ -5,17 +5,17 @@ public static class DateTimeExtensions
 {
     public static DateTime AddSafe(this DateTime dateTime, TimeSpan timeSpan)
     {
-        try
+        if (dateTime.Ticks + timeSpan.Ticks >= DateTime.MaxValue.Ticks)
+        {
+            return DateTime.MaxValue;
+        }
+        else if (dateTime.Ticks + timeSpan.Ticks <= DateTime.MinValue.Ticks)
+        {
+            return DateTime.MinValue;
+        }
+        else
         {
             return dateTime.Add(timeSpan);
         }
-
-        // Catch if the addition is out of bounds. Prevents error message.
-        // This is done because I have not found a reasonable way of validating before adding to a DateTime.
-        catch
-        {
-        }
-
-        return dateTime;
     }
 }

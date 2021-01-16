@@ -6,19 +6,21 @@
 [CustomEditor(typeof(ClockController), true)]
 public class ClockControllerEditor : Editor
 {
-    ClockController targetClockController;
+    ClockController targetClockController = default;
 
-    SerializedProperty clockModeProperty;
+    SerializedProperty clockModeProperty = default;
 
-    SerializedProperty startEventProperty;
+    SerializedProperty startEventProperty = default;
 
-    SerializedProperty tickEventProperty;
+    SerializedProperty tickEventProperty = default;
 
-    SerializedProperty stopEventProperty;
+    SerializedProperty stopEventProperty = default;
 
-    SerializedProperty resetEventProperty;
+    SerializedProperty resetEventProperty = default;
 
-    SerializedProperty modeChangedEventProperty;
+    SerializedProperty finishedEventProperty = default;
+
+    SerializedProperty modeChangedEventProperty = default;
 
 
     void OnEnable()
@@ -30,6 +32,7 @@ public class ClockControllerEditor : Editor
         tickEventProperty = serializedObject.FindProperty("onTick");
         stopEventProperty = serializedObject.FindProperty("onStop");
         resetEventProperty = serializedObject.FindProperty("onReset");
+        finishedEventProperty = serializedObject.FindProperty("onFinished");
         modeChangedEventProperty = serializedObject.FindProperty("onModeChanged");
     }
 
@@ -56,6 +59,7 @@ public class ClockControllerEditor : Editor
         EditorGUILayout.PropertyField(tickEventProperty);
         EditorGUILayout.PropertyField(stopEventProperty);
         EditorGUILayout.PropertyField(resetEventProperty);
+        EditorGUILayout.PropertyField(finishedEventProperty);
         EditorGUILayout.PropertyField(modeChangedEventProperty);
 
         serializedObject.ApplyModifiedProperties();

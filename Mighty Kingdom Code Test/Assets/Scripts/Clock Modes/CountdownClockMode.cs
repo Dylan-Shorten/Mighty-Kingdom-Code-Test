@@ -7,7 +7,7 @@ public class CountdownClockMode : ClockMode
 {
     void OnEnable()
     {
-        OnUpdate.AddListener(_ => OnUpdateClock());
+        OnUpdate.DynamicCalls += _ => OnUpdateClock();
     }
 
     void OnUpdateClock()

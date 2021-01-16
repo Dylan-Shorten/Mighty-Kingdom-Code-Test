@@ -20,5 +20,5 @@ MonoBehaviour:
     hour: 0
     day: 1
     month: 1
-    year: 2021
+    year: 1
   clockFormat: {fileID: 11400000, guid: 32830ca4b4b42cd459e85a051054e96c, type: 2}

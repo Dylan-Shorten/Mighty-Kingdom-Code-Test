@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class Draggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField]
@@ -14,6 +15,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         isDragging = true;
+        previousMousePosition = Input.mousePosition;
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -27,8 +29,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             Vector2 mouseDelta = (Vector2)Input.mousePosition - previousMousePosition;
             dragTransform.Translate(mouseDelta);
+            previousMousePosition = Input.mousePosition;
         }
-
-        previousMousePosition = Input.mousePosition;
     }
 }

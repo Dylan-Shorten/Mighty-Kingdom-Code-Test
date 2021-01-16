@@ -16,7 +16,7 @@ public class ClockModeInstancer : MonoBehaviour
     [SerializeField]
     ClockMode baseClockMode = default;
 
-    ClockMode instancedClockMode;
+    ClockMode instancedClockMode = default;
 
     private void Awake()
     {

@@ -16,11 +16,11 @@ public class ClockDisplay : MonoBehaviour
 
     private void Start()
     {
-        clockController.OnTick.AddListener(_ => UpdateTextDisplay());
-        clockController.OnStart.AddListener(_ => UpdateTextDisplay());
-        clockController.OnStop.AddListener(_ => UpdateTextDisplay());
-        clockController.OnReset.AddListener(_ => UpdateTextDisplay());
-        clockController.OnFormatChanged.AddListener(_ => UpdateTextDisplay());
+        clockController.OnTick.DynamicCalls += _ => UpdateTextDisplay();
+        clockController.OnStart.DynamicCalls += _ => UpdateTextDisplay();
+        clockController.OnStop.DynamicCalls += _ => UpdateTextDisplay();
+        clockController.OnReset.DynamicCalls += _ => UpdateTextDisplay();
+        clockController.OnFormatChanged.DynamicCalls += _ => UpdateTextDisplay();
     }
 
     void UpdateTextDisplay()

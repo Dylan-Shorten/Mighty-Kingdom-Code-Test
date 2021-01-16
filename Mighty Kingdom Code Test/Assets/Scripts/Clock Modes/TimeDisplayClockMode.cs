@@ -13,7 +13,7 @@ public class TimeDisplayClockMode : ClockMode
         previousTime = DateTime.Now;
         IsTicking = true;
 
-        OnUpdate.AddListener(_ => OnUpdateClock());
+        OnUpdate.DynamicCalls += _ => OnUpdateClock();
     }
 
     void OnUpdateClock()

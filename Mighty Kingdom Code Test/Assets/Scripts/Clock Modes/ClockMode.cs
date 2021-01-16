@@ -4,7 +4,17 @@ using UnityEngine;
 
 public abstract class ClockMode : ScriptableObject
 {
-    public DateTime ClockTime { get => clockTime; set => clockTime = value; }
+    public DateTime ClockTime
+    {
+        get => clockTime;
+        set
+        {
+            if (clockTime != value)
+            {
+                clockTime = value;
+            }
+        }
+    }
 
     public DateTime InitialClockTime => initialClockTime.DateTime;
 
@@ -29,6 +39,8 @@ public abstract class ClockMode : ScriptableObject
 
     public ClockModeEvent OnReset => onReset;
 
+    public ClockEvent OnClockTimeChanged => onClockTimeChanged;
+
     public ClockFormatEvent OnFormatChanged => onFormatChanged;
 
     protected DateTime PreviousTime => previousTime;
@@ -49,6 +61,8 @@ public abstract class ClockMode : ScriptableObject
 
     ClockModeEvent onReset = new ClockModeEvent();
 
+    ClockEvent onClockTimeChanged = new ClockEvent();
+
     ClockFormatEvent onFormatChanged = new ClockFormatEvent();
 
 
@@ -60,14 +74,20 @@ public abstract class ClockMode : ScriptableObject
         previousTime = DateTime.Now;
     }
 
-    public void UpdateClock()
+    public bool UpdateClock()
     {
+        bool result = false;
+
         if (IsTicking)
         {
             OnUpdate?.Invoke(this);
+
+            result = true;
         }
 
         previousTime = DateTime.Now;
+
+        return result;
     }
 
     public void ResetClock()
