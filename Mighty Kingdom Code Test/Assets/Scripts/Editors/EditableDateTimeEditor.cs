@@ -3,6 +3,8 @@ using UnityEditor;
 using UnityEngine;
 
 
+#if UNITY_EDITOR
+
 [CustomPropertyDrawer(typeof(EditableDateTime))]
 public class EditableDateTimeDrawer : PropertyDrawer
 {
@@ -13,9 +15,7 @@ public class EditableDateTimeDrawer : PropertyDrawer
         EditorGUILayout.LabelField(label);
         EditorGUI.indentLevel++;
 
-        SerializedProperty formatProperty = property.FindPropertyRelative("dateTimeFormat");
-        EditorGUILayout.PropertyField(formatProperty);
-
+        SerializedProperty selectionProperty = property.FindPropertyRelative("dateTimeSelection");
         SerializedProperty millisecondProperty = property.FindPropertyRelative("millisecond");
         SerializedProperty secondProperty = property.FindPropertyRelative("second");
         SerializedProperty minuteProperty = property.FindPropertyRelative("minute");
@@ -24,32 +24,34 @@ public class EditableDateTimeDrawer : PropertyDrawer
         SerializedProperty monthProperty = property.FindPropertyRelative("month");
         SerializedProperty yearProperty = property.FindPropertyRelative("year");
 
-        EDateTimeFormat formatEnum = (EDateTimeFormat)formatProperty.intValue;
-        if (formatEnum.HasFlag(EDateTimeFormat.Millisecond))
+        EditorGUILayout.PropertyField(selectionProperty);
+        EDateTimeSelection selection = (EDateTimeSelection)selectionProperty.intValue;
+
+        if (selection.HasFlag(EDateTimeSelection.Millisecond))
         {
             EditorGUILayout.IntSlider(millisecondProperty, 0, 999);
         }
-        if (formatEnum.HasFlag(EDateTimeFormat.Second))
+        if (selection.HasFlag(EDateTimeSelection.Second))
         {
             EditorGUILayout.IntSlider(secondProperty, 0, 59);
         }
-        if (formatEnum.HasFlag(EDateTimeFormat.Minute))
+        if (selection.HasFlag(EDateTimeSelection.Minute))
         {
             EditorGUILayout.IntSlider(minuteProperty, 0, 59);
         }
-        if (formatEnum.HasFlag(EDateTimeFormat.Hour))
+        if (selection.HasFlag(EDateTimeSelection.Hour))
         {
             EditorGUILayout.IntSlider(hourProperty, 0, 23);
         }
-        if (formatEnum.HasFlag(EDateTimeFormat.Day))
+        if (selection.HasFlag(EDateTimeSelection.Day))
         {
             EditorGUILayout.IntSlider(dayProperty, 1, DateTime.DaysInMonth(yearProperty.intValue, monthProperty.intValue));
         }
-        if (formatEnum.HasFlag(EDateTimeFormat.Month))
+        if (selection.HasFlag(EDateTimeSelection.Month))
         {
             EditorGUILayout.IntSlider(monthProperty, 1, 12);
         }
-        if (formatEnum.HasFlag(EDateTimeFormat.Year))
+        if (selection.HasFlag(EDateTimeSelection.Year))
         {
             EditorGUILayout.PropertyField(yearProperty);
         }
@@ -62,3 +64,5 @@ public class EditableDateTimeDrawer : PropertyDrawer
         dayProperty.intValue = Mathf.Clamp(dayProperty.intValue, 0, DateTime.DaysInMonth(yearProperty.intValue, monthProperty.intValue));
     }
 }
+
+#endif

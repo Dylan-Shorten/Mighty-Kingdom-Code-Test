@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Clock/Clock Modes/Stopwatch Clock Mode")]
 public class StopwatchClockMode : ClockMode
 {
     public EditableDateTime StartTime => startTime;

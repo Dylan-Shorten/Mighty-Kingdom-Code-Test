@@ -318,6 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clockController: {fileID: 484817872}
   textDisplay: {fileID: 963972831}
+  clockFormat: {fileID: 11400000, guid: c0ac03a68bb47204aa870f3711e41fa2, type: 2}
 --- !u!114 &484817872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,7 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd9c4b49e2a247a4f9e649577104e484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clockMode: {fileID: 11400000, guid: 99313301abce2e04fac89500b521c8fa, type: 2}
+  clockMode: {fileID: 11400000, guid: 7fd9f59f743cd2747a2047cf75b46bbe, type: 2}
 --- !u!4 &484817873
 Transform:
   m_ObjectHideFlags: 0
@@ -713,7 +714,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'dddd MMMM yyyy
+
+    HH:mm:ss'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -740,10 +743,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 22.05
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

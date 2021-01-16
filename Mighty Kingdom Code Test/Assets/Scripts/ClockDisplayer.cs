@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using TMPro;
 
+
+[ExecuteAlways]
 public class ClockDisplayer : MonoBehaviour
 {
     [SerializeField]
@@ -9,8 +11,22 @@ public class ClockDisplayer : MonoBehaviour
     [SerializeField]
     TMP_Text textDisplay = default;
 
-    private void Update()
+    [SerializeField]
+    ClockFormat clockFormat = default;
+
+    void Update()
     {
-        textDisplay.text = clockController.ClockTime.ToString();
+        if (Application.isPlaying)
+            textDisplay.text = clockFormat.GetDateTimeFormatted(clockController.ClockTime);
     }
+
+#if UNITY_EDITOR
+    void OnValidate()
+    {
+        if (!Application.isPlaying)
+        {
+            textDisplay.text = clockFormat.Format;
+        }
+    }
+#endif
 }

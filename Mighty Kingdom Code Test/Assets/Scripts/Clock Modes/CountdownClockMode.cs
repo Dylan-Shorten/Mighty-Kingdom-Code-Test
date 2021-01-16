@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Clock/Clock Modes/Countdown Clock Mode")]
 public class CountdownClockMode : ClockMode
 {
     public EditableDateTime StartTime => startTime;

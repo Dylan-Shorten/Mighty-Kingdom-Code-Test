@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Clock/Clock Modes/Time Display Clock Mode")]
 public class TimeDisplayClockMode : ClockMode
 {
     public override DateTime UpdateClockTime(DateTime clockTime)

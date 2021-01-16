@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 [Flags]
-public enum EDateTimeFormat
+public enum EDateTimeSelection
 {
     Millisecond = 1 << 1,
     Second = 1 << 2,
@@ -20,12 +20,12 @@ public struct EditableDateTime : ISerializationCallbackReceiver
 {
     public DateTime DateTime { get => dateTime; set => dateTime = value; }
 
-    public EDateTimeFormat DateTimeFormat => dateTimeFormat;
+    public EDateTimeSelection DateTimeSelection => dateTimeSelection;
 
     DateTime dateTime;
 
     [SerializeField]
-    EDateTimeFormat dateTimeFormat;
+    EDateTimeSelection dateTimeSelection;
 
     [SerializeField]
     int millisecond;
