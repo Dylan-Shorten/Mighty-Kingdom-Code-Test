@@ -3,8 +3,10 @@ using TMPro;
 
 
 [ExecuteAlways]
-public class ClockDisplayer : MonoBehaviour
+public class ClockDisplay : MonoBehaviour
 {
+    public ClockDisplayFormat ClockDisplayFormat { get => clockDisplayFormat; set => clockDisplayFormat = value; }
+
     [SerializeField]
     ClockController clockController = default;
 
@@ -12,7 +14,7 @@ public class ClockDisplayer : MonoBehaviour
     TMP_Text textDisplay = default;
 
     [SerializeField]
-    ClockFormat clockFormat = default;
+    ClockDisplayFormat clockDisplayFormat = default;
 
 
     void Update()
@@ -22,12 +24,12 @@ public class ClockDisplayer : MonoBehaviour
             return;
         }
 
-        if (clockFormat == null || textDisplay == null)
+        if (clockDisplayFormat == null || textDisplay == null)
         {
             return;
         }
 
-        textDisplay.text = clockFormat.GetDateTimeFormatted(clockController.ClockTime);
+        textDisplay.text = clockDisplayFormat.GetDateTimeFormatted(clockController.ClockTime);
     }
 
 #if UNITY_EDITOR
@@ -38,12 +40,12 @@ public class ClockDisplayer : MonoBehaviour
             return;
         }
 
-        if (clockFormat == null || textDisplay == null)
+        if (clockDisplayFormat == null || textDisplay == null)
         {
             return;
         }
 
-        textDisplay.text = clockFormat.Format;
+        textDisplay.text = clockDisplayFormat.Format;
     }
 #endif
 }

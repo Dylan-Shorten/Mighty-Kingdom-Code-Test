@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9b858a34313b5643953d913d1e2520c, type: 3}
-  m_Name: Minute Time
+  m_Name: Stopwatch
   m_EditorClassIdentifier: 
   format: mm:ss.ffff

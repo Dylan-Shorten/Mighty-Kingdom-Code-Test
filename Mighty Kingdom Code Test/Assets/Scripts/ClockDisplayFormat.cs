@@ -2,8 +2,8 @@
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "Clock/Clock Format")]
-public class ClockFormat : ScriptableObject
+[CreateAssetMenu(menuName = "Clock/Clock Display Format")]
+public class ClockDisplayFormat : ScriptableObject
 {
     public string Format => format;
 
