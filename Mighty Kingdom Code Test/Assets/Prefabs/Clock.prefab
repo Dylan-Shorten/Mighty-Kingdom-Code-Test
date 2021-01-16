@@ -194,8 +194,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseClockMode: {fileID: 11400000, guid: 99313301abce2e04fac89500b521c8fa, type: 2}
-  assignToControllerOnAwake: 0
-  clockController: {fileID: 5281713503081288736}
+--- !u!114 &6023794099475791976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851578761402290001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ff940279d54e4e92f632d7d3823dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Event:
+    _PersistentCalls:
+    - _Target: {fileID: 843366172870547607}
+      _MethodName: get_InstancedClockMode
+      _PersistentArguments: []
+    - _Target: {fileID: 5281713503081288736}
+      _MethodName: set_ClockMode
+      _PersistentArguments:
+      - _Type: 15
+        _Int: 0
+        _String: ClockMode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
 --- !u!114 &148922611832818778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,8 +235,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseClockMode: {fileID: 11400000, guid: 7fd9f59f743cd2747a2047cf75b46bbe, type: 2}
-  assignToControllerOnAwake: 0
-  clockController: {fileID: 5281713503081288736}
+--- !u!114 &2432791406609239013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2332887295956905208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ff940279d54e4e92f632d7d3823dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Event:
+    _PersistentCalls:
+    - _Target: {fileID: 148922611832818778}
+      _MethodName: get_InstancedClockMode
+      _PersistentArguments: []
+    - _Target: {fileID: 5281713503081288736}
+      _MethodName: set_ClockMode
+      _PersistentArguments:
+      - _Type: 15
+        _Int: 0
+        _String: ClockMode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
 --- !u!1 &2425848610200489535
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,8 +533,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseClockMode: {fileID: 11400000, guid: 9732babbddf6900429ba30f39d4c5b01, type: 2}
-  assignToControllerOnAwake: 1
-  clockController: {fileID: 5281713503081288736}
+--- !u!114 &1237587778731256745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462654260722254506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ff940279d54e4e92f632d7d3823dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Event:
+    _PersistentCalls:
+    - _Target: {fileID: 4268443411017321216}
+      _MethodName: get_InstancedClockMode
+      _PersistentArguments: []
+    - _Target: {fileID: 5281713503081288736}
+      _MethodName: set_ClockMode
+      _PersistentArguments:
+      - _Type: 15
+        _Int: 0
+        _String: ClockMode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+--- !u!114 &6629365544063551270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462654260722254506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003c25630808c7243847bd9149749434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _AwakeEvent:
+    _PersistentCalls:
+    - _Target: {fileID: 4268443411017321216}
+      _MethodName: get_InstancedClockMode
+      _PersistentArguments: []
+    - _Target: {fileID: 5281713503081288736}
+      _MethodName: set_ClockMode
+      _PersistentArguments:
+      - _Type: 15
+        _Int: 0
+        _String: ClockMode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+  _StartEvent:
+    _PersistentCalls: []
+  _EnableEvent:
+    _PersistentCalls: []
+  _DisableEvent:
+    _PersistentCalls: []
+  _DestroyEvent:
+    _PersistentCalls: []
 --- !u!1 &2739364084217255825
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +606,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2942538259979919778}
+  - component: {fileID: 5249993954452133649}
   m_Layer: 0
   m_Name: Mode Buttons
   m_TagString: Untagged
@@ -521,6 +636,23 @@ RectTransform:
   m_AnchoredPosition: {x: -55, y: 38.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5249993954452133649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2739364084217255825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ff940279d54e4e92f632d7d3823dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Event:
+    _PersistentCalls:
+    - _Target: {fileID: 6563726051178367382}
+      _MethodName: SyncClockDisplayFormat
+      _PersistentArguments: []
 --- !u!1 &2809750634555236394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,26 +1437,15 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Standard D&T
       m_Image: {fileID: 0}
-    - m_Text: Military D&T
-      m_Image: {fileID: 0}
     - m_Text: Military Time
+      m_Image: {fileID: 0}
+    - m_Text: Military D&T
       m_Image: {fileID: 0}
     - m_Text: Stopwatch
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6563726051178367382}
-        m_MethodName: SetClockDisplayFormat
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &2104197617131035701
 MonoBehaviour:
@@ -1353,13 +1474,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb1dd1db90395c4ba3ddaf5cc9340f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clockDisplay: {fileID: 5281713503081288767}
-  clockDisplayFormats:
-  - {fileID: 11400000, guid: 6e2890fa5ddf2974984f04017572e976, type: 2}
-  - {fileID: 11400000, guid: 32830ca4b4b42cd459e85a051054e96c, type: 2}
-  - {fileID: 11400000, guid: c0ac03a68bb47204aa870f3711e41fa2, type: 2}
-  - {fileID: 11400000, guid: 42702c55c66fa9e42865a7652ae055ce, type: 2}
-  - {fileID: 11400000, guid: b252b17a3d51f57428f8d24ba1091228, type: 2}
+  clockController: {fileID: 5281713503081288736}
+  formatList: {fileID: 11400000, guid: dec72a5a916748e4f85c1786ab4c5f53, type: 2}
+  dropdown: {fileID: 7125600885434987883}
 --- !u!1 &5036552264843704530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,7 +1663,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clockMode: {fileID: 0}
-  initiallyStarted: 1
   onStart:
     m_PersistentCalls:
       m_Calls:
@@ -1567,17 +1683,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 4268443411017321216}
-        m_MethodName: AssignToClockController
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 5281713503081288736}
-          m_ObjectArgumentAssemblyTypeName: ClockController, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1617,6 +1722,9 @@ MonoBehaviour:
   onModeChanged:
     m_PersistentCalls:
       m_Calls: []
+  onFormatChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5281713503081288767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1631,10 +1739,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clockController: {fileID: 5281713503081288736}
   textDisplay: {fileID: 5281713503560524079}
-  clockDisplayFormat: {fileID: 11400000, guid: 42702c55c66fa9e42865a7652ae055ce, type: 2}
-  onFormatChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5297631057124365822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,7 +1864,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clockController: {fileID: 5281713503081288736}
-  clockDisplay: {fileID: 5281713503081288767}
   timeInputField: {fileID: 6486093190742349510}
   formatText: {fileID: 4304762034674748591}
 --- !u!1 &5726261092194194890
@@ -2115,7 +2218,7 @@ GameObject:
   - component: {fileID: 2804903193017616845}
   - component: {fileID: 394226700195275452}
   - component: {fileID: 8033225193803646777}
-  - component: {fileID: 3549687565502072459}
+  - component: {fileID: 1136090033026291149}
   m_Layer: 0
   m_Name: Destroy Button
   m_TagString: Untagged
@@ -2223,18 +2326,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3549687565502072459}
-        m_MethodName: ObjectDestroy
-        m_Mode: 2
+      - m_Target: {fileID: 1136090033026291149}
+        m_MethodName: Invoke
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 5281713503081288766}
+          m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3549687565502072459
+--- !u!114 &1136090033026291149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2243,9 +2346,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 6098785112177733544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82b83f207abc515498aa381c6523c260, type: 3}
+  m_Script: {fileID: 11500000, guid: 289ff940279d54e4e92f632d7d3823dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Event:
+    _PersistentCalls:
+    - _Target: {fileID: 0}
+      _MethodName: UnityEngine.Object, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null.Destroy
+      _PersistentArguments:
+      - _Type: 13
+        _Int: 0
+        _String: UnityEngine.Object, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 5281713503081288766}
 --- !u!1 &6105916117625063149
 GameObject:
   m_ObjectHideFlags: 0
@@ -3530,11 +3648,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4268443411017321216}
+      objectReference: {fileID: 1237587778731256745}
     - target: {fileID: 4605828773826655829, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AssignToClockController
+      value: Invoke
       objectReference: {fileID: 0}
     - target: {fileID: 4605828773826655829, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
         type: 3}
@@ -3610,11 +3728,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 5281713503081288736}
+      objectReference: {fileID: 5249993954452133649}
     - target: {fileID: 4605828773826655829, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: StartClock
+      value: Invoke
       objectReference: {fileID: 0}
     - target: {fileID: 4605828773826655829, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
         type: 3}
@@ -3755,7 +3873,7 @@ PrefabInstance:
     - target: {fileID: 4605828773826655829, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4605828773826655829, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
         type: 3}
@@ -3771,11 +3889,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 148922611832818778}
+      objectReference: {fileID: 2432791406609239013}
     - target: {fileID: 4605828773826655829, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AssignToClockController
+      value: Invoke
       objectReference: {fileID: 0}
     - target: {fileID: 4605828773826655829, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
         type: 3}
@@ -3881,11 +3999,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 5281713503081288736}
+      objectReference: {fileID: 5249993954452133649}
     - target: {fileID: 4605828773826655829, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: StopClock
+      value: Invoke
       objectReference: {fileID: 0}
     - target: {fileID: 4605828773826655829, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
         type: 3}
@@ -3904,15 +4022,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc3272610d5d0a4f848be84f59dd0c9, type: 3}
---- !u!224 &2332887295956905211 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4605828773826655828, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 2272950566038379183}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2332887295956905208 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4605828773826655831, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2272950566038379183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2332887295956905211 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4605828773826655828, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
     type: 3}
   m_PrefabInstance: {fileID: 2272950566038379183}
   m_PrefabAsset: {fileID: 0}
@@ -4031,7 +4149,7 @@ PrefabInstance:
     - target: {fileID: 4605828773826655829, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4605828773826655829, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
         type: 3}
@@ -4047,11 +4165,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 843366172870547607}
+      objectReference: {fileID: 6023794099475791976}
     - target: {fileID: 4605828773826655829, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AssignToClockController
+      value: Invoke
       objectReference: {fileID: 0}
     - target: {fileID: 4605828773826655829, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
         type: 3}
@@ -4137,11 +4255,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 5281713503081288736}
+      objectReference: {fileID: 5249993954452133649}
     - target: {fileID: 4605828773826655829, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: StopClock
+      value: Invoke
       objectReference: {fileID: 0}
     - target: {fileID: 4605828773826655829, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
         type: 3}
@@ -4579,15 +4697,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc3272610d5d0a4f848be84f59dd0c9, type: 3}
---- !u!1 &5281713504546609465 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4605828773826655831, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 8549902125853290350}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5281713504546609466 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4605828773826655828, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 8549902125853290350}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5281713504546609465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4605828773826655831, guid: 9bc3272610d5d0a4f848be84f59dd0c9,
     type: 3}
   m_PrefabInstance: {fileID: 8549902125853290350}
   m_PrefabAsset: {fileID: 0}

@@ -10,8 +10,6 @@ public class ClockControllerEditor : Editor
 
     SerializedProperty clockModeProperty;
 
-    SerializedProperty initiallyStartedProperty;
-
     SerializedProperty startEventProperty;
 
     SerializedProperty tickEventProperty;
@@ -28,7 +26,6 @@ public class ClockControllerEditor : Editor
         targetClockController = target as ClockController;
 
         clockModeProperty = serializedObject.FindProperty("clockMode");
-        initiallyStartedProperty = serializedObject.FindProperty("initiallyStarted");
         startEventProperty = serializedObject.FindProperty("onStart");
         tickEventProperty = serializedObject.FindProperty("onTick");
         stopEventProperty = serializedObject.FindProperty("onStop");
@@ -55,7 +52,6 @@ public class ClockControllerEditor : Editor
 
         serializedObject.Update();
 
-        EditorGUILayout.PropertyField(initiallyStartedProperty);
         EditorGUILayout.PropertyField(startEventProperty);
         EditorGUILayout.PropertyField(tickEventProperty);
         EditorGUILayout.PropertyField(stopEventProperty);

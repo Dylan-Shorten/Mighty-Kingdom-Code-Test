@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d6e80ed20907a47883fb30da8d1f6f, type: 3}
   m_Name: Time Display Mode
   m_EditorClassIdentifier: 
-  IsTicking: 1
   initialClockTime:
     dateTimeSelection: -1
     millisecond: 0
@@ -22,3 +21,4 @@ MonoBehaviour:
     day: 1
     month: 1
     year: 2021
+  clockFormat: {fileID: 11400000, guid: 32830ca4b4b42cd459e85a051054e96c, type: 2}

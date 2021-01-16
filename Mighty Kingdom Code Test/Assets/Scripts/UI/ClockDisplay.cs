@@ -3,38 +3,15 @@ using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 
-[Serializable]
-public class ClockFormatEvent : UnityEvent<ClockDisplayFormat> { }
 
 [ExecuteAlways]
 public class ClockDisplay : MonoBehaviour
 {
-    public ClockDisplayFormat ClockDisplayFormat
-    {
-        get => clockDisplayFormat;
-        set
-        {
-            if (value != clockDisplayFormat)
-            {
-                clockDisplayFormat = value;
-                onFormatChanged?.Invoke(clockDisplayFormat);
-            }
-        }
-    }
-
-    public ClockFormatEvent OnFormatChanged => onFormatChanged;
-
     [SerializeField]
     ClockController clockController = default;
 
     [SerializeField]
     TMP_Text textDisplay = default;
-
-    [SerializeField]
-    ClockDisplayFormat clockDisplayFormat = default;
-
-    [SerializeField]
-    ClockFormatEvent onFormatChanged;
 
 
     private void Start()
@@ -43,8 +20,7 @@ public class ClockDisplay : MonoBehaviour
         clockController.OnStart.AddListener(_ => UpdateTextDisplay());
         clockController.OnStop.AddListener(_ => UpdateTextDisplay());
         clockController.OnReset.AddListener(_ => UpdateTextDisplay());
-
-        OnFormatChanged.AddListener(_ => UpdateTextDisplay());
+        clockController.OnFormatChanged.AddListener(_ => UpdateTextDisplay());
     }
 
     void UpdateTextDisplay()
@@ -54,7 +30,7 @@ public class ClockDisplay : MonoBehaviour
             return;
         }
 
-        textDisplay.text = clockDisplayFormat.GetDateTimeFormatted(clockController.ClockTime);
+        textDisplay.text = clockController.ClockFormat.GetDateTimeFormatted(clockController.ClockTime);
     }
 
 #if UNITY_EDITOR
@@ -65,7 +41,12 @@ public class ClockDisplay : MonoBehaviour
             return;
         }
 
-        textDisplay.text = clockDisplayFormat.Format;
+        if (clockController == null || clockController.ClockMode == null || clockController.ClockFormat == null)
+        {
+            return;
+        }
+
+        textDisplay.text = clockController.ClockFormat.Format;
     }
 #endif
 }

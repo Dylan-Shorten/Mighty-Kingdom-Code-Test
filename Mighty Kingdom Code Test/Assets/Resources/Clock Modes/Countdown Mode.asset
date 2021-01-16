@@ -21,3 +21,4 @@ MonoBehaviour:
     day: 1
     month: 1
     year: 1
+  clockFormat: {fileID: 11400000, guid: b252b17a3d51f57428f8d24ba1091228, type: 2}

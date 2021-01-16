@@ -3,33 +3,32 @@
 
 public class ClockModeInstancer : MonoBehaviour
 {
-    public ClockMode InstancedClockMode => instancedClockMode;
+    // In case clock mode is requested before Awake.
+    public ClockMode InstancedClockMode
+    {
+        get
+        {
+            TryCreateClockMode();
+            return instancedClockMode;
+        }
+    }
 
     [SerializeField]
     ClockMode baseClockMode = default;
 
-    [SerializeField]
-    bool assignToControllerOnAwake = default;
-
-    [SerializeField]
-    ClockController clockController = default;
-
     ClockMode instancedClockMode;
-
 
     private void Awake()
     {
-        instancedClockMode = ScriptableObject.CreateInstance(baseClockMode.GetType()) as ClockMode;
-        instancedClockMode.SetupClock(baseClockMode);
-
-        if (assignToControllerOnAwake)
-        {
-            AssignToClockController();
-        }
+        TryCreateClockMode();
     }
 
-    public void AssignToClockController()
+    void TryCreateClockMode()
     {
-        clockController.ClockMode = InstancedClockMode;
+        if (instancedClockMode == null)
+        {
+            instancedClockMode = ScriptableObject.CreateInstance(baseClockMode.GetType()) as ClockMode;
+            instancedClockMode.SetupClock(baseClockMode);
+        }
     }
 }

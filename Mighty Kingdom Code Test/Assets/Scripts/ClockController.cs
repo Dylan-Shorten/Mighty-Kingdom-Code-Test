@@ -6,6 +6,12 @@ using UnityEngine.Events;
 [Serializable]
 public class ClockEvent : UnityEvent<DateTime> { }
 
+[Serializable]
+public class ClockFormatEvent : UnityEvent<ClockDisplayFormat> { }
+
+[Serializable]
+public class ClockModeEvent : UnityEvent<ClockMode> { }
+
 
 public class ClockController : MonoBehaviour
 {
@@ -28,8 +34,18 @@ public class ClockController : MonoBehaviour
         set
         {
             clockMode = value;
-            onModeChanged?.Invoke();
+            onModeChanged?.Invoke(clockMode);
             RefreshClock();
+        }
+    }
+
+    public ClockDisplayFormat ClockFormat
+    {
+        get => clockMode.ClockFormat;
+        set
+        {
+            clockMode.ClockFormat = value;
+            onFormatChanged?.Invoke(clockMode.ClockFormat);
         }
     }
 
@@ -43,13 +59,12 @@ public class ClockController : MonoBehaviour
 
     public ClockEvent OnReset => onReset;
 
-    public UnityEvent OnModeChanged => onModeChanged;
+    public ClockModeEvent OnModeChanged => onModeChanged;
+
+    public ClockFormatEvent OnFormatChanged => onFormatChanged;
 
     [SerializeField]
     ClockMode clockMode = default;
-
-    [SerializeField]
-    bool initiallyStarted = default;
 
     [SerializeField]
     ClockEvent onStart = default;
@@ -64,20 +79,15 @@ public class ClockController : MonoBehaviour
     ClockEvent onReset = default;
 
     [SerializeField]
-    UnityEvent onModeChanged = default;
+    ClockModeEvent onModeChanged = default;
+
+    [SerializeField]
+    ClockFormatEvent onFormatChanged = default;
 
 
     void Start()
     {
-        if (initiallyStarted)
-        {
-            StartClock();
-        }
-        else
-        {
-            StopClock();
-        }
-
+        RefreshClock();
         ResetClock();
     }
 
