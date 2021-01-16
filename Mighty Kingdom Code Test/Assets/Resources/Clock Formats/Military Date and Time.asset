@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b858a34313b5643953d913d1e2520c, type: 3}
   m_Name: Military Date and Time
   m_EditorClassIdentifier: 
-  format: 'dddd MMMM yyyy
+  format: 'dd MMMM yyyy
 
     HH:mm:ss'

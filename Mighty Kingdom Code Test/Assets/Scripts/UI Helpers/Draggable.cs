@@ -10,6 +10,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     bool isDragging = default;
 
+
     public void OnPointerDown(PointerEventData eventData)
     {
         isDragging = true;

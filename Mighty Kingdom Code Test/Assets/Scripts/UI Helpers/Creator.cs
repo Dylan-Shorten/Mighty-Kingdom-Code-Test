@@ -4,10 +4,14 @@
 public class Creator : MonoBehaviour
 {
     [SerializeField]
-    Transform parent;
+    Transform parent = default;
+
+    [SerializeField]
+    Transform creationPoint = default;
+
 
     public void ObjectCreate(Object objectToCreate)
     {
-        Instantiate(objectToCreate, parent);
+        Instantiate(objectToCreate, creationPoint.position, Quaternion.identity, parent);
     }
 }

@@ -14,9 +14,13 @@ public class ClockControllerEditor : Editor
 
     SerializedProperty startEventProperty;
 
+    SerializedProperty tickEventProperty;
+
     SerializedProperty stopEventProperty;
 
     SerializedProperty resetEventProperty;
+
+    SerializedProperty modeChangedEventProperty;
 
 
     void OnEnable()
@@ -26,8 +30,10 @@ public class ClockControllerEditor : Editor
         clockModeProperty = serializedObject.FindProperty("clockMode");
         initiallyStartedProperty = serializedObject.FindProperty("initiallyStarted");
         startEventProperty = serializedObject.FindProperty("onStart");
+        tickEventProperty = serializedObject.FindProperty("onTick");
         stopEventProperty = serializedObject.FindProperty("onStop");
         resetEventProperty = serializedObject.FindProperty("onReset");
+        modeChangedEventProperty = serializedObject.FindProperty("onModeChanged");
     }
 
     public override void OnInspectorGUI()
@@ -51,8 +57,10 @@ public class ClockControllerEditor : Editor
 
         EditorGUILayout.PropertyField(initiallyStartedProperty);
         EditorGUILayout.PropertyField(startEventProperty);
+        EditorGUILayout.PropertyField(tickEventProperty);
         EditorGUILayout.PropertyField(stopEventProperty);
         EditorGUILayout.PropertyField(resetEventProperty);
+        EditorGUILayout.PropertyField(modeChangedEventProperty);
 
         serializedObject.ApplyModifiedProperties();
     }

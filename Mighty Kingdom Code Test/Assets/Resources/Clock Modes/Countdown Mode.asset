@@ -21,3 +21,4 @@ MonoBehaviour:
     day: 1
     month: 1
     year: 1
+  finishSound: {fileID: 8300000, guid: 369d9eadebc2cfb43b98cee9a416bd52, type: 3}
