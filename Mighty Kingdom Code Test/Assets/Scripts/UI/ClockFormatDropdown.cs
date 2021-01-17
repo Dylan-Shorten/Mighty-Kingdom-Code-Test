@@ -44,7 +44,7 @@ public class ClockFormatDropdown : MonoBehaviour
     {
         int foundIndex = formatList.GetIndexOfFormat(clockController.ClockFormat);
 
-        if (foundIndex >= 0)
+        if (foundIndex != -1)
         {
             dropdown.value = foundIndex;
         }

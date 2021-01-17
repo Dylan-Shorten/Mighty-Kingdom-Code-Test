@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "Clock/Clock Modes/Stopwatch Clock Mode")]
+[CreateAssetMenu(menuName = "Clock/Clock Modes/Stopwatch")]
 public class StopwatchClockMode : ClockMode
 {
     void OnEnable()

@@ -15,6 +15,8 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         isDragging = true;
+
+        // Reset previous mouse position to current position to prevent jumping between drags.
         previousMousePosition = Input.mousePosition;
     }
 
@@ -25,11 +27,13 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     private void Update()
     {
-        if (isDragging)
+        if (!isDragging)
         {
-            Vector2 mouseDelta = (Vector2)Input.mousePosition - previousMousePosition;
-            dragTransform.Translate(mouseDelta);
-            previousMousePosition = Input.mousePosition;
+            return;
         }
+
+        Vector2 mouseDelta = (Vector2)Input.mousePosition - previousMousePosition;
+        dragTransform.Translate(mouseDelta);
+        previousMousePosition = Input.mousePosition;
     }
 }

@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "Clock/Clock Display Format List")]
+[CreateAssetMenu(menuName = "Clock/Format/Clock Format List")]
 public class ClockFormatList : ScriptableObject
 {
     [SerializeField]

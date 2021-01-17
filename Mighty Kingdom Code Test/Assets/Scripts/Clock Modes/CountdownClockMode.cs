@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "Clock/Clock Modes/Countdown Clock Mode")]
+[CreateAssetMenu(menuName = "Clock/Clock Modes/Countdown")]
 public class CountdownClockMode : ClockMode
 {
     void OnEnable()

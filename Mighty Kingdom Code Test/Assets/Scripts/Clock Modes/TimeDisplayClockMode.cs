@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "Clock/Clock Modes/Time Display Clock Mode")]
+[CreateAssetMenu(menuName = "Clock/Clock Modes/Time Display")]
 public class TimeDisplayClockMode : ClockMode
 {
     DateTime previousTime = default;

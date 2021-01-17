@@ -19,6 +19,7 @@ public class TimeSetter : MonoBehaviour
     private void Start()
     {
         timeInputField.onEndEdit.AddListener(SetTime);
+
         clockController.OnFormatChanged.DynamicCalls += _ => RefreshFormatText();
         clockController.OnModeChanged.DynamicCalls += _ => RefreshFormatText();
 
@@ -41,7 +42,7 @@ public class TimeSetter : MonoBehaviour
         timeInputField.text = string.Empty;
     }
 
-    private string GetFormatNoNewLines(ClockFormat format)
+    private static string GetFormatNoNewLines(ClockFormat format)
     {
         return format.Format.Replace(Environment.NewLine, " ").Replace("\n", " ");
     }
