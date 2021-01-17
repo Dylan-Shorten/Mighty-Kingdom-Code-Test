@@ -7,7 +7,7 @@ using UltEvents;
 public class ClockEvent : UltEvent<DateTime> { }
 
 [Serializable]
-public class ClockFormatEvent : UltEvent<ClockDisplayFormat> { }
+public class ClockFormatEvent : UltEvent<ClockFormat> { }
 
 [Serializable]
 public class ClockModeEvent : UltEvent<ClockMode> { }
@@ -42,7 +42,7 @@ public class ClockController : MonoBehaviour
         }
     }
 
-    public ClockDisplayFormat ClockFormat
+    public ClockFormat ClockFormat
     {
         get => clockMode.ClockFormat;
         set
@@ -55,7 +55,7 @@ public class ClockController : MonoBehaviour
         }
     }
 
-    public bool IsTicking { get => clockMode.IsTicking; set => clockMode.IsTicking = value; }
+    public bool IsTicking => clockMode.IsTicking;
 
     public ClockEvent OnStart => onStart;
 
@@ -121,13 +121,13 @@ public class ClockController : MonoBehaviour
 
     public void StartClock()
     {
-        IsTicking = true;
+        clockMode.StartClock();
         onStart?.Invoke(ClockTime);
     }
 
     public void StopClock()
     {
-        IsTicking = false;
+        clockMode.StopClock();
         onStop?.Invoke(ClockTime);
     }
 

@@ -41,8 +41,8 @@ public class TimeSetter : MonoBehaviour
         timeInputField.text = string.Empty;
     }
 
-    private string GetFormatNoNewLines(ClockDisplayFormat format)
+    private string GetFormatNoNewLines(ClockFormat format)
     {
-        return format.Format.Replace("\n", " ");
+        return format.Format.Replace(Environment.NewLine, " ").Replace("\n", " ");
     }
 }

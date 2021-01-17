@@ -20,9 +20,9 @@ public abstract class ClockMode : ScriptableObject
 
     public TimeSpan DeltaTime => DateTime.Now - PreviousTime;
 
-    public bool IsTicking { get => isTicking; set => isTicking = value; }
+    public bool IsTicking => isTicking;
 
-    public ClockDisplayFormat ClockFormat
+    public ClockFormat ClockFormat
     {
         get => clockFormat;
         set
@@ -37,6 +37,10 @@ public abstract class ClockMode : ScriptableObject
 
     public ClockModeEvent OnUpdate => onUpdate;
 
+    public ClockModeEvent OnStart => onStart;
+
+    public ClockModeEvent OnStop => onStop;
+
     public ClockModeEvent OnReset => onReset;
 
     public ClockEvent OnClockTimeChanged => onClockTimeChanged;
@@ -49,7 +53,7 @@ public abstract class ClockMode : ScriptableObject
     EditableDateTime initialClockTime = default;
 
     [SerializeField]
-    ClockDisplayFormat clockFormat = default;
+    ClockFormat clockFormat = default;
 
     DateTime clockTime = default;
 
@@ -58,6 +62,10 @@ public abstract class ClockMode : ScriptableObject
     bool isTicking = default;
 
     ClockModeEvent onUpdate = new ClockModeEvent();
+
+    ClockModeEvent onStart = new ClockModeEvent();
+
+    ClockModeEvent onStop = new ClockModeEvent();
 
     ClockModeEvent onReset = new ClockModeEvent();
 
@@ -78,7 +86,7 @@ public abstract class ClockMode : ScriptableObject
     {
         bool result = false;
 
-        if (IsTicking)
+        if (isTicking)
         {
             OnUpdate?.Invoke(this);
 
@@ -88,6 +96,18 @@ public abstract class ClockMode : ScriptableObject
         previousTime = DateTime.Now;
 
         return result;
+    }
+
+    public void StartClock()
+    {
+        isTicking = true;
+        onStart?.Invoke(this);
+    }
+
+    public void StopClock()
+    {
+        isTicking = false;
+        onStop?.Invoke(this);
     }
 
     public void ResetClock()

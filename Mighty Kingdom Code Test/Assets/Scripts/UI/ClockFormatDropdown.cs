@@ -8,7 +8,7 @@ public class ClockFormatDropdown : MonoBehaviour
     ClockController clockController = default;
 
     [SerializeField]
-    ClockDisplayFormatList formatList = default;
+    ClockFormatList formatList = default;
 
     [SerializeField]
     TMP_Dropdown dropdown = default;
@@ -32,7 +32,7 @@ public class ClockFormatDropdown : MonoBehaviour
             return;
         }
 
-        ClockDisplayFormat foundFormat = formatList.GetFormat(clockFormatIndex);
+        ClockFormat foundFormat = formatList.GetFormat(clockFormatIndex);
 
         if (foundFormat != null)
         {

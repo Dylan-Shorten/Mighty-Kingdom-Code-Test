@@ -3,13 +3,13 @@ using UnityEngine;
 
 
 [CreateAssetMenu(menuName = "Clock/Clock Display Format List")]
-public class ClockDisplayFormatList : ScriptableObject
+public class ClockFormatList : ScriptableObject
 {
     [SerializeField]
-    ClockDisplayFormat[] formats = default;
+    ClockFormat[] formats = default;
 
 
-    public ClockDisplayFormat GetFormat(int index)
+    public ClockFormat GetFormat(int index)
     {
         if (index < 0 || index >= formats.Length)
         {
@@ -19,7 +19,7 @@ public class ClockDisplayFormatList : ScriptableObject
         return formats[index];
     }
 
-    public int GetIndexOfFormat(ClockDisplayFormat format)
+    public int GetIndexOfFormat(ClockFormat format)
     {
         return Array.IndexOf(formats, format);
     }

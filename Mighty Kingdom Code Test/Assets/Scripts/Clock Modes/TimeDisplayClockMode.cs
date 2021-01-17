@@ -11,9 +11,12 @@ public class TimeDisplayClockMode : ClockMode
     void OnEnable()
     {
         previousTime = DateTime.Now;
-        IsTicking = true;
+        StartClock();
 
         OnUpdate.DynamicCalls += _ => OnUpdateClock();
+
+        // Don't ever let the TimeDisplay be stopped.
+        OnStop.DynamicCalls += _ => StartClock();
     }
 
     void OnUpdateClock()
