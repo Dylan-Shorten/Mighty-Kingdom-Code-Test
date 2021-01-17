@@ -18,5 +18,6 @@ public class StopwatchClockMode : ClockMode
     void OnResetClock()
     {
         ClockTime = InitialClockTime;
+        StopClock();
     }
 }

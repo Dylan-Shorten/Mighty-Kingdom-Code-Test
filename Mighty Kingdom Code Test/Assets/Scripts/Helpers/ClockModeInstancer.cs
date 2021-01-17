@@ -18,7 +18,7 @@ public class ClockModeInstancer : MonoBehaviour
 
     ClockMode instancedClockMode = default;
 
-    private void Awake()
+    void Awake()
     {
         TryCreateClockMode();
     }

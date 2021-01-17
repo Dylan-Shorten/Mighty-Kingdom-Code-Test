@@ -135,6 +135,8 @@ public class ClockController : MonoBehaviour
     {
         clockMode.ResetClock();
         onReset?.Invoke(ClockTime);
+
+        RefreshClock();
     }
 
     public void RefreshClock()

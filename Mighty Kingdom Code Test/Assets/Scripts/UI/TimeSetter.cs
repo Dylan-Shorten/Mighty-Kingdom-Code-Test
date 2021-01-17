@@ -16,7 +16,7 @@ public class TimeSetter : MonoBehaviour
     TMP_Text formatText = default;
 
 
-    private void Start()
+    void Start()
     {
         timeInputField.onEndEdit.AddListener(SetTime);
 
@@ -26,7 +26,7 @@ public class TimeSetter : MonoBehaviour
         RefreshFormatText();
     }
 
-    private void RefreshFormatText()
+    void RefreshFormatText()
     {
         formatText.text = GetFormatNoNewLines(clockController.ClockFormat);
     }
@@ -42,7 +42,7 @@ public class TimeSetter : MonoBehaviour
         timeInputField.text = string.Empty;
     }
 
-    private static string GetFormatNoNewLines(ClockFormat format)
+    static string GetFormatNoNewLines(ClockFormat format)
     {
         return format.Format.Replace(Environment.NewLine, " ").Replace("\n", " ");
     }

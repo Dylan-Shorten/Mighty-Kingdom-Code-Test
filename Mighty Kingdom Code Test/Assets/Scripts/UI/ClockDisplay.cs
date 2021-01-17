@@ -12,13 +12,15 @@ public class ClockDisplay : MonoBehaviour
     TMP_Text textDisplay = default;
 
 
-    private void Start()
+    void Start()
     {
         clockController.OnTick.DynamicCalls += _ => UpdateTextDisplay();
         clockController.OnStart.DynamicCalls += _ => UpdateTextDisplay();
         clockController.OnStop.DynamicCalls += _ => UpdateTextDisplay();
         clockController.OnReset.DynamicCalls += _ => UpdateTextDisplay();
         clockController.OnFormatChanged.DynamicCalls += _ => UpdateTextDisplay();
+
+        UpdateTextDisplay();
     }
 
     void UpdateTextDisplay()

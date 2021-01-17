@@ -25,7 +25,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         isDragging = false;
     }
 
-    private void Update()
+    void Update()
     {
         if (!isDragging)
         {
